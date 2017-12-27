@@ -1,3 +1,7 @@
 ENV
 .Rproj.user
 *.Rproj
+*.pyc
+notes.txt
+db.sqlite3
+geckodriver.log
