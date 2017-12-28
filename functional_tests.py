@@ -37,10 +37,8 @@ class NewVisitorTest(unittest.TestCase):
 
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
-        self.assertTrue(
-            any(row.text == '1: item 1' for row in rows),
-            "New to-do item did not appear in table"
-        )
+        self.assertIn('1. item 1', [row.text for row in rows])
+        self.assertIn('2. item 2', [row.text for row in rows])
 
         # user continues to see textbox inviting to add more. Enters 'item 2'
         self.fail('finish the tests')
