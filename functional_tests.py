@@ -39,7 +39,7 @@ class NewVisitorTest(unittest.TestCase):
         # user hits enter and sees item 1 on list
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
-        self.check_for_row_in_list_table('1. item 1')
+        self.check_for_row_in_list_table('1: item 1')
 
         # user continues to see textbox inviting to add more. Enters 'item 2'
         inputbox = self.browser.find_element_by_id('id_new_item')
