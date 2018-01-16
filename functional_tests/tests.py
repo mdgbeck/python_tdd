@@ -84,7 +84,7 @@ class NewVisitorTest(LiveServerTestCase):
         ## we use a new browser session to make sure that no info
         ## of user1 is coming from cookies, etc.
         self.browser.quit()
-        self.browser.webdriver.Firefox()
+        self.browser = webdriver.Firefox()
 
         # user2 visits home page, no sign of user1 lists
         self.browser.get(self.live_server_url)
@@ -94,8 +94,8 @@ class NewVisitorTest(LiveServerTestCase):
 
         # user2 starts new list
         inputbox = self.browser.find_element_by_id('id_new_item')
-        inputbox = send_keys('letter a')
-        inputbox = send_keys(Keys.Enter)
+        inputbox.send_keys('letter a')
+        inputbox.send_keys(Keys.ENTER)
         self.wait_for_row_in_list_table('1: letter a')
 
         # user2 gets his own unique url
