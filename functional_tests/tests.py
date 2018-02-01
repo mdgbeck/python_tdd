@@ -109,6 +109,3 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertIn('letter a', page_text)
 
         # both go back to sleep
-
-
-        self.fail('finish the tests')
