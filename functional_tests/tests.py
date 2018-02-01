@@ -104,7 +104,7 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertNotEqual(user2_list_url, user_list_url)
 
         # again no trace of user1 lists
-        page_text = self.browser.current_url
+        page_text = self.browser.find_element_by_tag_name('body').text
         self.assertNotIn('item 1', page_text)
         self.assertIn('letter a', page_text)
 
