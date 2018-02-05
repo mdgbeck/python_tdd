@@ -6,3 +6,4 @@ notes.txt
 db.sqlite3
 geckodriver.log
 ./static
+/static
