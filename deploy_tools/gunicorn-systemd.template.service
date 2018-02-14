@@ -1,0 +1,15 @@
+[Unit]
+Description=Gunicorn server for staging.mdgbeck.science
+
+[Service]
+Restart=on-failure
+User=mike
+WorkingDirectory=/home/mike/sites/mdgbeck-staging.science
+EnvironmentFile=/home/mike/sites/mdgbeck-staging.science/.env
+
+ExecStart=/home/mike/sites/mdgbeck-staging.science/ENV/bin/gunicorn \
+	--bind unix:/tmp/staging.mdgbeck.science.socket \
+	superlists.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
