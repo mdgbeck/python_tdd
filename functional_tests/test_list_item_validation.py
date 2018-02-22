@@ -5,6 +5,7 @@ from .base import FunctionalTest
 
 class ItemValidationTest(FunctionalTest):
 
+
     def test_cannot_add_empty_list_items(self):
         # user 1 got to home page and accidently adds a blank item
         self.browser.get(self.live_server_url)
