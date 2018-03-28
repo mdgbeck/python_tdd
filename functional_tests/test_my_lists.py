@@ -7,7 +7,7 @@ User = get_user_model()
 
 class MyListsTest(FunctionalTest):
 
-    def create_pre_autenticated_sessions(self, email):
+    def create_pre_autenticated_session(self, email):
         user = User.objects.create(email=email)
         session = SessionStore()
         session[SESSION_KEY] = user.pk
@@ -21,3 +21,14 @@ class MyListsTest(FunctionalTest):
             value=session.session_key,
             path='/'
         ))
+
+
+    def test_logged_in_users_lists_are_saved_as_my_lists(self):
+        email = 'user1@example.com'
+        self.browser.get(self.live_server_url)
+        self.wait_to_be_logged_out(email)
+
+        # user1 is a logged in user
+        self.create_pre_autenticated_session(email)
+        self.browser.get(self.live_server_url)
+        self.wait_to_be_logged_in(email)
